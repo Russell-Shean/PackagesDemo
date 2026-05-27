@@ -135,5 +135,22 @@ devtools::test()
 # Check the whole package
 devtools::check()
 
+# clean up of variables used for the example
 remove(func_name, func_string)
+
+
+# Website ----------------------------------------------------------------
+# just for fun, let's build a website and then set it up to automatically update
+# each push. For this we'll use Posit's bolierplates, in the real world, we'd probably
+# use our own workflow files
+# And configure access to only people inside our organization
+
+# enable pkgdown
+usethis::use_pkgdown()
+
+# enable a website and deployment to github pages
+usethis::use_pkgdown_github_pages()
+
+# enable a github action to automatically update the website
+usethis::use_github_action("pkgdown")
 
