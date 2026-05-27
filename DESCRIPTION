@@ -1,8 +1,8 @@
 Package: PackagesDemo
-Title: What the Package Does (One Line, Title Case)
+Title: This is a Demo Package for a Coding Interview
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
+    person("Russell", "Shean", , "first.last@example.com", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
@@ -14,4 +14,4 @@ Imports:
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: http://www.russellshean.com/PackagesDemo/
+URL: https://www.russellshean.com, https://russell-shean.github.io, http://www.russellshean.com/PackagesDemo/
