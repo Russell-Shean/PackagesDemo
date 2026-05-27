@@ -14,4 +14,4 @@ Imports:
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: https://www.russellshean.com, https://russell-shean.github.io, http://www.russellshean.com/PackagesDemo/
+URL: https://www.russellshean.com, https://russell-shean.github.io, https://www.russellshean.com/PackagesDemo/
