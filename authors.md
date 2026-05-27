@@ -2,18 +2,18 @@
 
 ## Authors
 
-- **First Last**. Author, maintainer.
+- **Russell Shean**. Author, maintainer.
 
 ## Citation
 
-Last F (2026). *PackagesDemo: What the Package Does (One Line, Title
-Case)*. R package version 0.0.0.9000,
-<http://www.russellshean.com/PackagesDemo/>.
+Shean R (2026). *PackagesDemo: This is a Demo Package for a Coding
+Interview*. R package version 0.0.0.9000,
+<https://www.russellshean.com>.
 
     @Manual{,
-      title = {PackagesDemo: What the Package Does (One Line, Title Case)},
-      author = {First Last},
+      title = {PackagesDemo: This is a Demo Package for a Coding Interview},
+      author = {Russell Shean},
       year = {2026},
       note = {R package version 0.0.0.9000},
-      url = {http://www.russellshean.com/PackagesDemo/},
+      url = {https://www.russellshean.com},
     }
