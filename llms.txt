@@ -1,0 +1,12 @@
+# packages-demo
+
+An interview coding demo showing how packages could be used for
+reproducible R code
+
+# Package index
+
+## All functions
+
+- [`avgScoreByCohort()`](http://www.russellshean.com/PackagesDemo/reference/avgScoreByCohort.md)
+  : Average Score by Cohort
+
