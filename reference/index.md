@@ -2,5 +2,5 @@
 
 ## All functions
 
-- [`avgScoreByCohort()`](https://russell-shean.github.io/PackagesDemo/reference/avgScoreByCohort.md)
+- [`avgScoreByCohort()`](https://russell-shean.github.io/reference/avgScoreByCohort.md)
   : Average Score by Cohort
