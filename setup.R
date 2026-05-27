@@ -40,7 +40,13 @@
 # How these dependencies should be installed is probably best determined on
 # case-by-case basis depending on the user and the environment. To install them
 # locally on a personal laptop you can use the following:
-#     install.packages(c("devtools", "roxygen2", "testthat", "knitr"))
+#     install.packages(c("devtools", "roxygen2", "testthat", "knitr", "sinew"))
+
+# The one I added addition to the standard R packages (2e) recommendations
+# is sinew. It pragmatically adds Roxygen skeletons instead of needing to manually
+# click through R studio menus. Depending on your organization's AI policy, in
+# the real world generating roxygen skeletons and writing documentation is something
+# I might give to Claude to handle the first draft
 
 # Load packages ---------------
 # These packages are used for creating an R package and implementing features
@@ -55,7 +61,14 @@
 # individual instead of by loading the metapackage
 #    e.g. library(dplyr) instead of  library(tidyverse)   )
 
+library(devtools)
 library(usethis)
+library(testthat)
+library(sinew)
+
+# Configuration settings ------------------------------------------------------
+# (Record in the project settings that we're using the 3rd edition of testthat)
+usethis::use_testthat()
 
 
 # I'm including these steps to show what steps I used. In retrospect I really don't
@@ -72,7 +85,7 @@ usethis::create_package("../PackagesDemo")
 
 
 # Add packages ----------------------------------------------------------------
-# Each project will obviosly have some unique dependencies, but it's probably
+# Each project will obviously have some unique dependencies, but it's probably
 # also safe to assume that some commonly used package versions can be standardized
 # e.g. dplyr. Any template may already come with pinned version of these common
 # packages, but for example here's how unique packages would be added:
@@ -80,6 +93,47 @@ usethis::create_package("../PackagesDemo")
 usethis::use_package("dplyr", min_version = packageVersion("dplyr") )
 
 
+# Add new function ------------------------------------------------------------
+# Let's create an example function based on the initial coding exercise
+# It'd be cool to combine all these individual steps into a utitility function that
+# creates the R file, adds the roxygen skeleton and creates tests
+
+# Define function name
+func_name <- "avgScoreByCohort"
+
+# and its code (this is for reproducibility of the example
+#               In the real world, we'd just write the function lol)
+# Define the function as a single string with \n
+func_string <- paste0(func_name, " <- function(df){\n\n  df <- df |> dplyr::group_by(cohort) |>\n    dplyr::summarise(score = mean(score, na.rm = TRUE))\n\n  df\n}")
 
 
+
+# create an R file
+usethis::use_r(func_name, open = FALSE)
+
+
+# Write the function to the file
+cat(func_string, file = paste0("R/", func_name, ".R"))
+
+
+# Generate the roxygen skeleton using sinew
+sinew::makeOxyFile(input = "R", overwrite = TRUE, verbose = FALSE)
+
+# Manual edits.......
+# Add description, parameter details, and examples, etc.
+
+# Add tests -------------------------------------------------------
+usethis::use_test(func_name)
+
+# Let's manually edit the tests to check that the example data provided as part
+# of the example matches the expected output
+# Manual edits .......
+
+# test the functions
+devtools::test()
+
+# Check the whole package
+devtools::check()
+
+remove(func_name, func_string)
 
